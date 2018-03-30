@@ -20,12 +20,13 @@ struct State
 /// </summary>
 class Shader : public QSGSimpleMaterialShader<State>
 {
-    //QSG_DECLARE_SIMPLE_SHADER(Shader, State);
     QSG_DECLARE_SIMPLE_COMPARABLE_SHADER(Shader, State);
 
+    Shader();
+
 public:
-    const char* vertexShader() const;
-    const char* fragmentShader() const;
+    //const char* vertexShader() const;
+    //const char* fragmentShader() const;
 
     QList<QByteArray> attributes() const;
 

@@ -11,20 +11,20 @@ Rectangle {
 
         MaterialItem {
             width: parent.width;
-            height: parent.height / 3;
-            color: "steelblue"
+            height: parent.height;
+            color: "#007fc0"//
         }
 
-        MaterialItem {
+        /*MaterialItem {
             width: parent.width;
             height: parent.height / 3;
-            color: "darkorchid"
+            color: "White"
         }
 
         MaterialItem {
             width: parent.width;
             height: parent.height / 3;
             color: "springgreen"
-        }
+        }*/
     }
 }

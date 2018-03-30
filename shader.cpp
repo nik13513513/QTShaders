@@ -17,29 +17,35 @@ int State::compare(const State *other) const
 }
 
 
-const char* Shader::vertexShader() const 
-{
-    return
-        "attribute highp vec4 aVertex;                          \
-                 attribute highp vec2 aTexCoord;                \
-                 uniform highp mat4 qt_Matrix;                  \
-                 varying highp vec2 texCoord;                   \
-                 void main() {                                  \
-                    gl_Position = qt_Matrix * aVertex;          \
-                    texCoord = aTexCoord;                       \
-                }";
-}
+//const char* Shader::vertexShader() const 
+//{
+//    return
+//        "attribute highp vec4 aVertex;                          \
+//                 attribute highp vec2 aTexCoord;                \
+//                 uniform highp mat4 qt_Matrix;                  \
+//                 varying highp vec2 texCoord;                   \
+//                 void main() {                                  \
+//                    gl_Position = qt_Matrix * aVertex;          \
+//                    texCoord = aTexCoord;                       \
+//                }";
+//}
+//
+//const char* Shader::fragmentShader() const
+//{
+//    return
+//        "uniform lowp float qt_Opacity;                                           \
+//                 uniform lowp vec4 color;                                           \
+//                 varying highp vec2 texCoord;                                       \
+//                 void main ()                                                       \
+//                 {                                                                  \
+//                     gl_FragColor = texCoord.y * texCoord.x * color * qt_Opacity;   \
+//                 }";
+//}
 
-const char* Shader::fragmentShader() const
+Shader::Shader()
 {
-    return
-        "uniform lowp float qt_Opacity;                                           \
-                 uniform lowp vec4 color;                                           \
-                 varying highp vec2 texCoord;                                       \
-                 void main ()                                                       \
-                 {                                                                  \
-                     gl_FragColor = texCoord.y * texCoord.x * color * qt_Opacity;   \
-                 }";
+    setShaderSourceFile(QOpenGLShader::Vertex, ":/shaders/brush.vsh");
+    setShaderSourceFile(QOpenGLShader::Fragment, ":/shaders/brush.fsh");
 }
 
 QList<QByteArray> Shader::attributes() const

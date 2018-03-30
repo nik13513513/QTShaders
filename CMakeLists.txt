@@ -34,11 +34,17 @@ FILE (GLOB SRC
     res.qrc
 )
 
-add_executable(${PROJECT_NAME} ${SRC} ${HDR} ${QML})
+FILE (GLOB SHADERS
+    shaders/brush.fsh
+    shaders/brush.vsh
+)
 
-source_group("QML Files" FILES ${QML})
-source_group("SRC" FILES ${SRC})
-source_group("HDR" FILES ${HDR})
+add_executable(${PROJECT_NAME} ${SRC} ${HDR} ${QML} ${SHADERS})
+
+source_group("Qml Files" FILES ${QML})
+source_group("Sources" FILES ${SRC})
+source_group("Headers" FILES ${HDR})
+source_group("Shaders" FILES ${SHADERS})
 
 target_link_libraries(${PROJECT_NAME}
     Qt5::Core
